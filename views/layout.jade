@@ -1,7 +1,141 @@
-doctype 5
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+!!! 5
+html(lang='en')
+head
+    meta(charset='utf-8')
+    link(type='image/x-icon', rel='icon', href='favicon.ico')
+    link(type='image/x-icon', rel='shortcut icon', href='favicon.ico')
+    link(rel='stylesheet', href='css/pipe.css')
+    link(rel='stylesheet', href='css/sh_vim-dark.css')
+    link(rel='alternate', type='application/rss+xml', title='node blog', href='http://feeds.feedburner.com/nodejs/123123123')
+    title node.js
+body#front
+    #intro
+
+
+        img(style='margin-right: 15px;', src='img/sa4.png', alt='node.js')
+        img#logo(src='http://nodejs.org/images/logo.png', alt='node.js')
+
+        p
+            | Node.js is a platform built on &nbsp;
+            a(href='http://code.google.com/p/v8/') Chrome's JavaScript runtime &nbsp;
+            | for easily building fast, scalable network applications.  Node.js
+            | uses an event-driven, non-blocking I/O model that makes it
+            | lightweight and efficient, perfect for data-intensive real-time
+            | applications that run across distributed devices.
+        .buttons
+            a#downloadbutton.button.downloadbutton(href='http://nodejs.org/dist/v0.10.5/node-v0.10.5.tar.gz') INSTALL
+            a#all-dl-options.button(href='http://nodejs.org/download/') Downloads
+            a#docsbutton.button(href='http://nodejs.org/api/') API Docs
+        a(href='http://github.com/joyent/node')
+            img.forkme(src='http://nodejs.org/images/forkme.png', alt='Fork me on GitHub')
+    #quotes.clearfix
+        h2 Node.js in South Africa
+        ul
+            li.invirohub
+                img(src='img/logos/invirohub2.png', alt='logo')
+                p
+                    | Node.js has enabled us to develop web APIs and back-end server processing
+                    | with exceptional results.
+                    br
+                    a(href='http://invirohub.com') Ayal Rosenberg
+                    br
+                    span CEO
+
+
+    #content.clearfix
+        #column1
+            h2 An example: Webserver
+            p
+                | This simple web server written in Node responds with "Hello World" for every request.
+            pre.
+                \nvar http = require('http');
+                http.createServer(function (req, res) {
+                    res.writeHead(200, {'Content-Type': 'text/plain'});
+                    res.end('Hello World\n');
+                }).listen(1337, '127.0.0.1');
+                console.log('Server running at http://127.0.0.1:1337/');
+            p
+                | To run the server, put the code into a file
+                code example.js
+                | and execute it with the
+                code node
+                | program from the command line:
+            pre.sh_none.
+                \n% node example.js
+                Server running at http://127.0.0.1:1337/
+            p
+                | Here is an example of a simple TCP server which listens on port 1337 and echoes whatever you send it:
+            pre.
+                \nvar net = require('net');
+
+                var server = net.createServer(function (socket) {
+                    socket.write('Echo server\r\n');
+                    socket.pipe(socket);
+                });
+
+                server.listen(1337, '127.0.0.1');
+        #column2
+            h2 Using Node.js?
+            | Contact us to have your company or business listed.
+            h2 Explore Node.js
+            ul#explore
+                li
+                    a.explore(href='about/') About
+                    br
+                    span Technical overview
+                li
+                    a.explore(href='http://search.npmjs.org/') npm Registry
+                    br
+                    span Modules, resources and more
+                li
+                    a.explore(href='http://nodejs.org/api/') Documentation
+                    br
+                    span API Specifications
+                li
+                    a.explore(href='http://blog.nodejs.org') Node.js Blog
+                    br
+                    span Insight, perspective and events
+                li
+                    a.explore(href='community/') Community
+                    br
+                    span Mailing lists, blogs, and more
+                li
+                    a.explore(href='logos/') Logos
+                    br
+                    span Logo and desktop background
+                li
+                    a.explore(href='http://jobs.nodejs.org/') Jobs
+                    br
+                    ol.jobs
+
+                      li
+                        a(href='http://jobs.nodejs.org/a/jbb/redirect/831195') Newstex
+                      li
+                        a(href='http://jobs.nodejs.org/a/jbb/redirect/827105') Healthrageous, Inc.
+
+    #footer
+        ul.clearfix
+            li
+                a(href='/') Node.js
+            li
+                a(href='http://nodejs.org/download/') Download
+            li
+                a(href='http://search.npmjs.org/') npm Registry
+            li
+                a(href='http://nodejs.org/api/') Docs
+            li
+                a(href='http://blog.nodejs.org') Blog
+            li
+                a(href='http://nodejs.org/community/') Community
+            li
+                a(href='http://nodejs.org/logos/') Logos
+            li
+                a(href='http://jobs.nodejs.org/') Jobs
+        p
+            | Node.js is a trademark of  &nbsp;
+            a(href='http://joyent.com/') Joyent, Inc. View &nbsp;
+            a(href='https://raw.github.com/joyent/node/v0.10.5/LICENSE') license
+            | .
+
+
+
